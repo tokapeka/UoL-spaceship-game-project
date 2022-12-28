@@ -14,14 +14,27 @@ function setup() {
 }
 
 function draw() {
-  background(0);
-  
-  fill(255,0,0);
-  noStroke();
-  triangle(spaceShip.x, spaceShip.y, 
-           spaceShip.x-50, spaceShip.y-10,
-           spaceShip.x-50, spaceShip.y+10
-          );
+	background(0);
+
+	fill(255,0,0);
+	noStroke();
+	triangle(spaceShip.x, spaceShip.y, 
+			spaceShip.x-50, spaceShip.y-10,
+			spaceShip.x-50, spaceShip.y+10
+			);
+	spaceShip.y += spaceShip.directionY;
+
+	//---------cave bottom----------
+	fill(100);
+	beginShape();
+	vertex(0, height);
+	for(var i = 0; i < width; i++) {
+		var y = map(noise(i*0.02), 0, 1, 900, 300);
+		vertex(i, y)
+	}
+	vertex(width, height);
+	endShape();
+	
 }
 
 function keyPressed(){
