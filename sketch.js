@@ -67,7 +67,7 @@ function getLowerNoisePoint(x){
 }
 
 function getHigherNoisePoint(x){
-	var n = noise(x * 0.01 + spaceShip.distance);
+	var n = noise(x * 0.01 + spaceShip.distance + 42596.26);
 	var y = map(n, 0, 1, 0, 300);
 	return y;
 }
