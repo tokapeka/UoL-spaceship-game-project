@@ -85,8 +85,10 @@ function handlSpaceShipInteraction(){
 	spaceShip.y += spaceShip.directionY;
 	spaceShip.distance += 0.1;
 
-	var y = getLowerNoisePoint(spaceShip.x);
-	if (spaceShip.y > y) {
+	var lower_y = getLowerNoisePoint(spaceShip.x);
+	var higher_y = getHigherNoisePoint(spaceShip.x);
+
+	if (spaceShip.y > lower_y || spaceShip.y < higher_y) {
 		gameOver();
 	}
 }
